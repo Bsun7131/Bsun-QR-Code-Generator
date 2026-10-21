@@ -1,0 +1,260 @@
+/*
+    Copyright (c) 2026 Bisan Subba. All rights reserved.
+    Project: Bsun QR Code Generator
+    Developer: Bisan Subba
+*/
+
+/* ===== GLOBAL STYLES ===== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 35px 16px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #07152c 0%,
+        #102b50 50%,
+        #07152c 100%
+    );
+}
+
+/* ===== MAIN CONTAINER ===== */
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* ===== HEADER ===== */
+
+header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.developer {
+    color: #a9bdd6;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: #c4d4e8;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ===== GENERATOR AND RESULT CARDS ===== */
+
+.generator,
+.result {
+    background: rgba(255, 255, 255, 0.06);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+
+    padding: 28px;
+    margin-bottom: 25px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* ===== LABELS ===== */
+
+label {
+    display: block;
+    margin-bottom: 9px;
+
+    color: #dce8f8;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ===== INPUT FIELDS ===== */
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px 14px;
+
+    margin-bottom: 22px;
+
+    background: #102747;
+    color: #ffffff;
+
+    border: 1px solid #355477;
+    border-radius: 9px;
+
+    font-size: 16px;
+    font-family: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #59a8ff;
+
+    box-shadow: 0 0 0 3px rgba(89, 168, 255, 0.15);
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+/* ===== COLOUR OPTIONS ===== */
+
+.color-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+input[type="color"] {
+    height: 52px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* ===== BUTTONS ===== */
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+button {
+    padding: 14px 22px;
+
+    border: none;
+    border-radius: 9px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#generateBtn,
+#downloadBtn {
+    background: #2584e9;
+    color: #ffffff;
+}
+
+#generateBtn:hover,
+#downloadBtn:hover:not(:disabled) {
+    background: #1670cd;
+}
+
+#clearBtn {
+    background: #344b68;
+    color: #ffffff;
+}
+
+#clearBtn:hover {
+    background: #425e80;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* ===== QR CODE RESULT ===== */
+
+.result {
+    text-align: center;
+}
+
+.result h2 {
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 22px;
+}
+
+#qrcode {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 120px;
+    margin-bottom: 24px;
+}
+
+#qrcode canvas,
+#qrcode img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+
+    color: #a4b8d0;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 22px 12px;
+    }
+
+    .generator,
+    .result {
+        padding: 20px;
+    }
+
+    .color-options {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+/* Developer credit beneath the QR code */
+.qr-developer {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+    color: #b8c9df;
+    font-style: italic;
+}
